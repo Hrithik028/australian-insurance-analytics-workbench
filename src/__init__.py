@@ -1,0 +1,1 @@
+"""Australian Insurance Analytics package."""

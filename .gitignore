@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.env
+*.duckdb
+*.duckdb.wal
+data/raw/
+data/external/
+data/interim/
+data/processed/
+*.log
+.streamlit/secrets.toml
+models/
+*.egg-info/

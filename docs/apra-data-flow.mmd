@@ -1,0 +1,16 @@
+flowchart LR
+    ZIP["APRA ZIP files"] --> EXTRACT["Safe extraction"]
+    EXTRACT --> DISCOVER["Workbook and sheet discovery"]
+    DISCOVER --> INSPECT["Schema inspection"]
+    INSPECT --> MAP["Column mapping"]
+    MAP --> CLEAN["Type-safe cleaning"]
+    CLEAN --> VALIDATE["Validation"]
+    VALIDATE --> FLAGS["Quality flags"]
+    FLAGS --> PARQUET[("Curated Parquet")]
+    PARQUET --> DB[("DuckDB")]
+    DB --> SQL["SQL analytics"]
+    SQL --> APP["Streamlit"]
+    APP --> REPORT["Executive report"]
+    RECON["Source / Parquet / DB reconciliation"] -.-> PARQUET
+    RECON -.-> DB
+

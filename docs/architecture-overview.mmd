@@ -1,0 +1,31 @@
+flowchart LR
+    subgraph Australian["Australian APRA Portfolio Analytics"]
+        APRA_POLICY["APRA policy reports"] --> APRA_INGEST["Workbook discovery and ingestion"]
+        APRA_CLAIMS["APRA claims reports"] --> APRA_INGEST
+        APRA_INGEST --> APRA_VALIDATE["Schema validation and data quality"]
+        APRA_VALIDATE --> APRA_STORE[("Parquet and DuckDB")]
+        APRA_STORE --> APRA_SQL["SQL portfolio analytics"]
+        APRA_SQL --> APRA_DASH["APRA Streamlit dashboards"]
+        APRA_DASH --> APRA_REPORT["Australian executive report"]
+    end
+
+    subgraph French["French Policy Pricing Model"]
+        HF["Hugging Face freMTPL2"] --> CACHE["Revision-pinned local cache"]
+        CACHE --> FR_VALIDATE["Schema, checksum and join validation"]
+        FR_VALIDATE --> FR_STORE[("Parquet and DuckDB")]
+        FR_STORE --> FREQ["Frequency GLM"]
+        FR_STORE --> SEV["Severity GLM"]
+        FREQ --> TECH["Technical claims cost"]
+        SEV --> TECH
+        TECH --> SIM["Loading simulator"]
+        SIM --> FR_DASH["French pricing dashboards"]
+    end
+
+    APRA_DASH --> APP["Unified Streamlit application"]
+    FR_DASH --> APP
+    APP --> DOCS["Reports, architecture and resume evidence"]
+    GOVERNANCE["Testing, reconciliation and governance"] -.-> APRA_VALIDATE
+    GOVERNANCE -.-> FREQ
+    GOVERNANCE -.-> SEV
+    GOVERNANCE -.-> APP
+

@@ -1,0 +1,18 @@
+flowchart LR
+    HF["Hugging Face repository"] --> CACHE["Local cache"]
+    CACHE --> HASH["Revision and checksum verification"]
+    HASH --> CSV["Frequency and severity CSVs"]
+    CSV --> SCHEMA["Schema validation"]
+    SCHEMA --> JOIN["Many-to-one policy join"]
+    JOIN --> PARQUET[("Parquet and DuckDB")]
+    PARQUET --> SPLIT["Policy-level train / test split"]
+    SPLIT --> FREQ["Poisson / NB frequency GLM"]
+    SPLIT --> SEV["Gamma severity GLM"]
+    FREQ --> TECH["Technical claims cost"]
+    SEV --> TECH
+    TECH --> SIM["Loading simulator"]
+    FREQ --> DIAG["Calibration and diagnostics"]
+    SEV --> DIAG
+    SIM --> APP["Streamlit"]
+    DIAG --> APP
+

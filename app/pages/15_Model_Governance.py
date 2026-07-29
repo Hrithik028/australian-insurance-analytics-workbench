@@ -1,3 +1,3 @@
-from app.pages.renderers import render_governance
+from pages.renderers import render_governance
 
 render_governance()

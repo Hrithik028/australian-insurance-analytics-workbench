@@ -1,3 +1,3 @@
-from app.pages.renderers import render_development
+from pages.renderers import render_development
 
 render_development()

@@ -16,13 +16,13 @@
 ## Outputs
 
 - DuckDB curated tables: 17
-- Streamlit pages: 15
+- Streamlit pages: 16
 - Frequency model: Negative Binomial GLM
 - Severity model: Gamma GLM with log link
 - APRA row reconciliation: 8/8 tables passed
-- Tests: 20 passed
+- Tests: 21 passed
 - Ruff: all checks passed; 88 files formatted
-- Streamlit smoke check: 15/15 pages passed; live health endpoint returned HTTP 200; disabled mode passed
+- Streamlit smoke check: 16/16 pages passed; live browser launch and disabled mode passed
 - Mermaid sources: 3
 - SVG diagrams: 3
 

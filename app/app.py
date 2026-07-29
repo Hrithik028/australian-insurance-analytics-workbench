@@ -2,11 +2,14 @@
 
 import streamlit as st
 
-from app.config import APP_TITLE
+from config import APP_TITLE
 
 st.set_page_config(page_title=APP_TITLE, page_icon="📊", layout="wide")
 st.navigation(
     {
+        "Project Overview": [
+            st.Page("pages/00_Home.py", title="Home", icon="🏠", default=True),
+        ],
         "Australian APRA Portfolio": [
             st.Page("pages/01_APRA_Portfolio_Overview.py", title="Portfolio Overview"),
             st.Page("pages/02_APRA_Policy_Trends.py", title="Policy Trends"),

@@ -1,3 +1,3 @@
-from app.pages.renderers import render_severity
+from pages.renderers import render_severity
 
 render_severity()

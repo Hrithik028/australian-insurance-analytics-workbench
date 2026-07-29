@@ -1,3 +1,3 @@
-from app.pages.renderers import render_frequency_model
+from pages.renderers import render_frequency_model
 
 render_frequency_model()

@@ -24,7 +24,7 @@ never merged and French model results are never represented as Australian market
 - 678,013 freMTPL2 frequency rows and 26,639 positive severity rows validated.
 - 11 primary curated source tables plus model output tables in DuckDB.
 - Policy-disjoint 60/20/20 modelling splits, with policy ID excluded from all formulas.
-- 15 Streamlit pages, downloadable quality exceptions, 11 analytical SQL files and eight notebooks.
+- 16 Streamlit pages, downloadable quality exceptions, 11 analytical SQL files and eight notebooks.
 - Exact source-to-Parquet-to-DuckDB row reconciliation for all eight APRA tables.
 
 The generated [APRA executive summary](reports/apra_executive_summary.md),
@@ -139,7 +139,7 @@ Full source: [french-model-pipeline.mmd](docs/french-model-pipeline.mmd).
 ## Repository structure
 
 ```text
-app/                  Streamlit entry point, components and 15 pages
+app/                  Streamlit entry point, recruiter landing page and 15 analytical pages
 data/                 Raw, external, interim and processed layers (ignored)
 database/             Local DuckDB database (ignored)
 docs/                 Architecture, methodology, data dictionary and limitations
@@ -298,4 +298,3 @@ read-only demonstration using permitted aggregate outputs.
 
 Exactly three evidence-backed bullets are maintained in [reports/resume_bullets.md](reports/resume_bullets.md).
 Numbers come from generated ingestion, modelling and verification artifacts—not placeholders.
-

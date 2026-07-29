@@ -171,7 +171,7 @@ is not a final customer premium and is not an Australian market indication.
 ## Outputs
 
 - DuckDB curated tables: {verification.get("duckdb_tables", 17)}
-- Streamlit pages: 15
+- Streamlit pages: 16
 - Frequency model: {frequency["model"]}
 - Severity model: {severity["model"]}
 - APRA row reconciliation: {int(reconciliation["reconciled"].sum())}/{len(reconciliation)} tables passed
@@ -193,7 +193,7 @@ severity model overpredicts mean severity.
         f"""# Resume bullets
 
 - Analysed {int(values["apra_rows"]):,} non-additive aggregate rows across eight APRA insurance report cuts using Python, SQL, Parquet and DuckDB, with source-to-database reconciliation and claims, severity, exposure and premium trend controls.
-- Built a 15-page Streamlit insurance analytics workbench with downloadable data-quality exceptions, development views and transparent claims-cost-index pricing scenarios.
+- Built a 16-page Streamlit insurance analytics workbench with a recruiter landing page, downloadable data-quality exceptions, development views and transparent claims-cost-index pricing scenarios.
 - Developed interpretable exposure-offset frequency and Gamma severity GLMs on {french_audit["frequency_rows"]:,} French motor policy rows and {french_audit["matched_severity_rows"]:,} matched positive-claim rows, with policy-disjoint validation, calibration and model-governance reporting.
 """,
         encoding="utf-8",

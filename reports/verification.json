@@ -1,7 +1,7 @@
 {
   "duckdb_tables": 17,
-  "tests": "20 passed",
+  "tests": "21 passed",
   "ruff": "all checks passed; 88 files formatted",
-  "streamlit": "15/15 pages passed; live health endpoint returned HTTP 200; disabled mode passed",
+  "streamlit": "16/16 pages passed; live browser launch and disabled mode passed",
   "svg_diagrams": 3
 }

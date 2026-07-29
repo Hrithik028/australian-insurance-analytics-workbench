@@ -7,13 +7,13 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
+from components.charts import line, ranked_bar
+from components.filters import apply_apra_filters
+from components.kpi_cards import kpi_row
+from components.warnings import apra_scope_warning, french_disclaimer
 
-from app.components.charts import line, ranked_bar
-from app.components.filters import apply_apra_filters
-from app.components.kpi_cards import kpi_row
-from app.components.warnings import apra_scope_warning, french_disclaimer
-from app.config import APRA_SOURCE_NOTE, FRENCH_SOURCE_NOTE
-from app.data import apra_table, french_table, read_json
+from config import APRA_SOURCE_NOTE, FRENCH_SOURCE_NOTE
+from data import apra_table, french_table, read_json
 from src.apra.development import development_matrix
 from src.apra.metrics import aggregate_claims
 from src.apra.scenarios import Scenario, calculate_scenario

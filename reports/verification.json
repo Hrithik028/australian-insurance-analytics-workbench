@@ -1,6 +1,6 @@
 {
   "duckdb_tables": 17,
-  "tests": "21 passed",
+  "tests": "22 passed",
   "ruff": "all checks passed; 88 files formatted",
   "streamlit": "16/16 pages passed; live browser launch and disabled mode passed",
   "svg_diagrams": 3

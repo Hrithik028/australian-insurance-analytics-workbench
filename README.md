@@ -1,5 +1,9 @@
 # Australian Insurance Portfolio Analytics and Pricing Workbench
 
+[Live Streamlit application](https://australian-insurance-workbench.streamlit.app/) ·
+[Architecture guide](docs/architecture.md) ·
+[Verified project report](reports/project_completion_report.md)
+
 A production-style insurance analytics portfolio project built for Australian pricing, data and
 analytics roles. It combines two deliberately separate modules:
 
@@ -11,6 +15,8 @@ analytics roles. It combines two deliberately separate modules:
 > not affiliated with, endorsed by or based on confidential data from APRA, IAG or any insurer.
 
 ## Public demo
+
+**Live app:** [australian-insurance-workbench.streamlit.app](https://australian-insurance-workbench.streamlit.app/)
 
 The repository includes compact, derived demo artifacts so the complete dashboard can run on
 Streamlit Community Cloud without committing the raw archives or full processed datasets. The
@@ -330,8 +336,7 @@ defined in [`pyproject.toml`](pyproject.toml).
 ## Future enhancements
 
 Potential next steps include repeated temporal validation, explicit calibration factors, monotonic
-feature constraints for challenger models, richer drift monitoring, containerisation and a hosted
-read-only demonstration using permitted aggregate outputs.
+feature constraints for challenger models, richer drift monitoring and containerisation.
 
 ## Resume evidence
 

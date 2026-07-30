@@ -23,6 +23,8 @@ def test_streamlit_entrypoint_does_not_shadow_app_package():
     entrypoint = Path("app/app.py").read_text(encoding="utf-8")
     assert 'st.Page("pages/00_Home.py"' in entrypoint
     assert "default=True" in entrypoint
+    assert "PROJECT_ROOT = Path(__file__).resolve().parents[1]" in entrypoint
+    assert entrypoint.index("sys.path.insert") < entrypoint.index("from config import APP_TITLE")
 
 
 def test_public_demo_artifacts_cover_dashboard_tables():

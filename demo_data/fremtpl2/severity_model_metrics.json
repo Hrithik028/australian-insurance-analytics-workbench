@@ -1,0 +1,15 @@
+{
+  "trained_at": "2026-07-29T08:25:23.728838+00:00",
+  "model": "Gamma GLM with log link",
+  "formula": "ClaimAmount ~ C(Area) + VehPower + C(VehAgeBand) + C(DrivAgeBand) + C(BonusMalusBand) + C(VehBrand) + C(VehGas) + LogDensity + C(Region)",
+  "target_rule": "positive ClaimAmount only; no capping or winsorisation",
+  "policy_id_excluded": true,
+  "train_rows": 15880,
+  "validation_rows": 5280,
+  "test_rows": 5284,
+  "large_loss_p99": 17239.397999999972,
+  "gamma_deviance": 1.5796154690535322,
+  "mae": 2080.592092062531,
+  "observed_mean": 1953.3235011355036,
+  "predicted_mean": 2323.0863561959354
+}

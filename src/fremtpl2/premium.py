@@ -6,9 +6,6 @@ from dataclasses import asdict, dataclass
 
 import pandas as pd
 
-from src.fremtpl2.frequency import predict_frequency
-from src.fremtpl2.severity import predict_severity
-
 
 @dataclass(frozen=True)
 class Loadings:
@@ -36,6 +33,9 @@ def calculate_loaded_premium(claims_cost: float, loadings: Loadings) -> dict[str
 
 
 def estimate_technical_claims_cost(frame: pd.DataFrame) -> pd.DataFrame:
+    from src.fremtpl2.frequency import predict_frequency
+    from src.fremtpl2.severity import predict_severity
+
     result = frame.copy()
     result["estimated_frequency"] = predict_frequency(frame)
     result["estimated_severity"] = predict_severity(frame)

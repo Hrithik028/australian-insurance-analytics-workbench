@@ -10,6 +10,18 @@ analytics roles. It combines two deliberately separate modules:
 > the public French freMTPL2 motor-insurance dataset. It is an independent portfolio project and is
 > not affiliated with, endorsed by or based on confidential data from APRA, IAG or any insurer.
 
+## Public demo
+
+The repository includes compact, derived demo artifacts so the complete dashboard can run on
+Streamlit Community Cloud without committing the raw archives or full processed datasets. The
+hosted app uses those artifacts automatically; local development uses full processed data when it
+is available.
+
+The demo artifacts preserve the analytical measures used by the dashboard. French distribution
+charts use deterministic samples, while the verified total policy, exposure and claim counts come
+from the sanitized pipeline audit. See [`demo_data/README.md`](demo_data/README.md) and
+[`demo_data/manifest.json`](demo_data/manifest.json) for the exact contents.
+
 ## Business problem
 
 Insurance analysts need to understand portfolio mix, claim volume, severity, development and data
@@ -76,6 +88,10 @@ Raw and downloaded data is ignored by Git. The project never substitutes synthet
 real source is unavailable; disabling the French module leaves the APRA module operational.
 
 ## Architecture
+
+The complete [architecture guide](docs/architecture.md) contains six diagrams covering system
+context, both data pipelines, model flow, application runtime selection, repository components and
+the public deployment. The key system view is below.
 
 ```mermaid
 flowchart LR
@@ -236,9 +252,13 @@ APRA_POLICY_ZIP=
 APRA_CLAIMS_ZIP=
 FREMTPL2_LOCAL_PATH=
 ENABLE_FRENCH_MODULE=true
+INSURANCE_DATA_MODE=auto
 DUCKDB_PATH=database/insurance_analytics.duckdb
 LOG_LEVEL=INFO
 ```
+
+`INSURANCE_DATA_MODE` accepts `auto`, `local` or `demo`. `auto` prefers full locally processed
+tables and falls back to the committed public-demo artifacts.
 
 ## Data setup
 
@@ -264,6 +284,7 @@ python scripts/train_severity_model.py
 python scripts/run_quality_checks.py
 python scripts/generate_diagrams.py
 python scripts/generate_reports.py
+python scripts/build_demo_data.py
 ```
 
 ## Test and launch
@@ -275,6 +296,24 @@ streamlit run app/app.py
 ```
 
 Open the local URL printed by Streamlit, normally `http://localhost:8501`.
+
+To test exactly what the hosted application will use:
+
+```bash
+set INSURANCE_DATA_MODE=demo
+streamlit run app/app.py
+```
+
+## Deploy on Streamlit Community Cloud
+
+1. Create a Streamlit Community Cloud app from this GitHub repository.
+2. Select the `main` branch and set the entrypoint to `app/app.py`.
+3. Select Python 3.12 in Advanced settings.
+4. Deploy. No secrets or private datasets are required.
+
+Streamlit installs the lightweight deployment dependencies from
+[`app/requirements.txt`](app/requirements.txt). The full research and pipeline environment remains
+defined in [`pyproject.toml`](pyproject.toml).
 
 ## Limitations
 

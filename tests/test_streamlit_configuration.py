@@ -23,3 +23,19 @@ def test_streamlit_entrypoint_does_not_shadow_app_package():
     entrypoint = Path("app/app.py").read_text(encoding="utf-8")
     assert 'st.Page("pages/00_Home.py"' in entrypoint
     assert "default=True" in entrypoint
+
+
+def test_public_demo_artifacts_cover_dashboard_tables():
+    required = {
+        "claims_by_state_loi",
+        "claims_by_state_eda",
+        "claims_by_occupation_loi",
+        "claims_by_occupation_eda",
+        "policies_by_state_loi",
+        "policies_by_state_eda",
+        "policies_by_occupation_loi",
+        "policies_by_occupation_eda",
+    }
+    demo = Path("demo_data/apra")
+    assert required == {path.stem for path in demo.glob("*.parquet")}
+    assert Path("app/requirements.txt").exists()

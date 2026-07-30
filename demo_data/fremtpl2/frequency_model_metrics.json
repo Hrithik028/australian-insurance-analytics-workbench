@@ -1,0 +1,31 @@
+{
+  "trained_at": "2026-07-29T08:44:34.807768+00:00",
+  "model": "Negative Binomial GLM",
+  "baseline": "Poisson GLM",
+  "challenger": "Negative Binomial GLM",
+  "formula": "ClaimNb ~ C(Area) + VehPower + C(VehAgeBand) + C(DrivAgeBand) + C(BonusMalusBand) + C(VehBrand) + C(VehGas) + LogDensity + C(Region)",
+  "offset": "log(Exposure)",
+  "policy_id_excluded": true,
+  "validation_comparison": {
+    "Poisson GLM": {
+      "poisson_deviance": 0.32393390818608103,
+      "mae_claim_count": 0.09912548995396792,
+      "observed_frequency": 0.10194698950659126,
+      "predicted_frequency": 0.1001340603419652
+    },
+    "Negative Binomial GLM": {
+      "poisson_deviance": 0.3239486246721118,
+      "mae_claim_count": 0.10003388774859882,
+      "observed_frequency": 0.10194698950659126,
+      "predicted_frequency": 0.10215830242364385
+    }
+  },
+  "train_rows": 406807,
+  "validation_rows": 135603,
+  "test_rows": 135603,
+  "poisson_deviance": 0.3210425328303891,
+  "mae_claim_count": 0.09946847499419349,
+  "observed_frequency": 0.10109680030857422,
+  "predicted_frequency": 0.10179381971128043,
+  "dispersion": 2.509810793796369
+}

@@ -260,14 +260,19 @@ def render_french_overview() -> None:
     _french_ready()
     frequency = french_table("fremtpl2_frequency")
     severity = french_table("fremtpl2_severity")
+    audit = read_json(settings.french_processed / "ingestion_audit.json")
     if frequency.empty:
         _empty()
     kpi_row(
         [
-            ("Policies", f"{len(frequency):,}", None),
-            ("Claim records", f"{len(severity):,}", None),
-            ("Exposure", f"{frequency['Exposure'].sum():,.0f}", "Policy-year exposure"),
-            ("Claims", f"{frequency['ClaimNb'].sum():,.0f}", None),
+            ("Policies", f"{audit.get('frequency_rows', len(frequency)):,}", None),
+            ("Claim records", f"{audit.get('severity_rows', len(severity)):,}", None),
+            (
+                "Exposure",
+                f"{audit.get('total_exposure', frequency['Exposure'].sum()):,.0f}",
+                "Policy-year exposure",
+            ),
+            ("Claims", f"{audit.get('total_claims', frequency['ClaimNb'].sum()):,.0f}", None),
         ]
     )
     st.plotly_chart(px.histogram(frequency, x="DrivAge", title="Driver age distribution"), width="stretch")

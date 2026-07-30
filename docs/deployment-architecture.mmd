@@ -1,0 +1,11 @@
+flowchart LR
+    LOCAL["Verified local pipelines"] --> BUILD["Build compact demo artifacts"]
+    BUILD --> DERIVED[("Derived Parquet and audits")]
+    LOCAL --> CODE["Application, tests, SQL and docs"]
+    DERIVED --> GITHUB["Public GitHub repository"]
+    CODE --> GITHUB
+    GITHUB --> CLOUD["Streamlit Community Cloud"]
+    CLOUD --> INSTALL["Install app/requirements.txt"]
+    INSTALL --> RUN["Run app/app.py"]
+    RUN --> PUBLIC["Public read-only dashboard"]
+    RAW[("Raw archives, full data, DuckDB and models")] -. "gitignored" .-> GITHUB

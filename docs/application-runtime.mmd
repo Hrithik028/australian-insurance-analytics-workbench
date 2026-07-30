@@ -1,0 +1,16 @@
+flowchart LR
+    ENTRY["app/app.py"] --> NAV["Grouped Streamlit navigation"]
+    NAV --> HOME["Recruiter landing page"]
+    NAV --> APRA["Eight APRA pages"]
+    NAV --> FRENCH["Six French pages"]
+    NAV --> GOV["Governance page"]
+    HOME --> ACCESS["Cached app/data.py access"]
+    APRA --> ACCESS
+    FRENCH --> ACCESS
+    GOV --> ACCESS
+    ACCESS --> MODE{"INSURANCE_DATA_MODE"}
+    MODE -->|"local"| FULL[("Full processed data")]
+    MODE -->|"demo"| DEMO[("Compact public demo data")]
+    MODE -->|"auto"| CHECK{"Full table exists?"}
+    CHECK -->|"yes"| FULL
+    CHECK -->|"no"| DEMO

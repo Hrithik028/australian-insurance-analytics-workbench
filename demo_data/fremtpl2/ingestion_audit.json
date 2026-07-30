@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "generated_at": "2026-07-29T08:44:48.172754+00:00",
+  "revision": "b645a3d34da6edf421785c83ddd39637b6553a10",
+  "frequency_rows": 678013,
+  "severity_rows": 26639,
+  "positive_severity_rows": 26639,
+  "matched_severity_rows": 26444,
+  "unmatched_severity_rows": 195,
+  "total_exposure": 358499.44546217704,
+  "total_claims": 36102
+}

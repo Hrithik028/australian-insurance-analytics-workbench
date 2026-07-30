@@ -1,0 +1,77 @@
+{
+  "purpose": "Compact derived artifacts for the public Streamlit demonstration.",
+  "source_data": [
+    "APRA National Claims and Policies Database masked aggregate reports, December 2024",
+    "freMTPL2 public motor insurance dataset"
+  ],
+  "notes": [
+    "Raw source archives and full processed datasets are intentionally excluded from Git.",
+    "APRA demo tables preserve additive measures at a reduced analytical grain.",
+    "French overview distributions use deterministic samples; verified totals come from the ingestion audit."
+  ],
+  "tables": [
+    {
+      "table": "claims_by_occupation_eda",
+      "source_rows": 158407,
+      "demo_rows": 59053,
+      "processed_rows": 158407
+    },
+    {
+      "table": "claims_by_occupation_loi",
+      "source_rows": 146439,
+      "demo_rows": 54661,
+      "processed_rows": 146439
+    },
+    {
+      "table": "claims_by_state_eda",
+      "source_rows": 122739,
+      "demo_rows": 32675,
+      "processed_rows": 122739
+    },
+    {
+      "table": "claims_by_state_loi",
+      "source_rows": 118852,
+      "demo_rows": 36390,
+      "processed_rows": 118852
+    },
+    {
+      "table": "policies_by_occupation_eda",
+      "source_rows": 60772,
+      "demo_rows": 19262,
+      "processed_rows": 60772
+    },
+    {
+      "table": "policies_by_occupation_loi",
+      "source_rows": 66453,
+      "demo_rows": 20640,
+      "processed_rows": 66453
+    },
+    {
+      "table": "policies_by_state_eda",
+      "source_rows": 21940,
+      "demo_rows": 4684,
+      "processed_rows": 21940
+    },
+    {
+      "table": "policies_by_state_loi",
+      "source_rows": 24428,
+      "demo_rows": 5008,
+      "processed_rows": 24428
+    },
+    {
+      "table": "fremtpl2_frequency",
+      "source_rows": 678013,
+      "demo_rows": 20000
+    },
+    {
+      "table": "fremtpl2_severity",
+      "source_rows": 26639,
+      "demo_rows": 5000
+    },
+    {
+      "table": "frequency_predictions",
+      "source_rows": 135603,
+      "demo_rows": 10
+    }
+  ]
+}

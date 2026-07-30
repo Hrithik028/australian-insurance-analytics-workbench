@@ -39,6 +39,7 @@ class Settings:
         else None
     )
     enable_french_module: bool = _bool_env("ENABLE_FRENCH_MODULE", True)
+    data_mode: str = os.getenv("INSURANCE_DATA_MODE", "auto").strip().lower()
     duckdb_path: Path = _path_env("DUCKDB_PATH", PROJECT_ROOT / "database/insurance_analytics.duckdb")
     log_level: str = os.getenv("LOG_LEVEL", "INFO").upper()
 
@@ -57,6 +58,10 @@ class Settings:
     @property
     def french_processed(self) -> Path:
         return self.root / "data/processed/fremtpl2"
+
+    @property
+    def demo_root(self) -> Path:
+        return self.root / "demo_data"
 
 
 settings = Settings()

@@ -1,0 +1,61 @@
+{
+  "tables": [
+    {
+      "table": "claims_by_occupation_eda",
+      "source_file": "Claim_by_OCC_EDA_Masked.xlsx",
+      "source_rows": 158407,
+      "processed_rows": 158407,
+      "exception_rows": 61574
+    },
+    {
+      "table": "claims_by_occupation_loi",
+      "source_file": "Claim_by_OCC_LOI_Masked.xlsx",
+      "source_rows": 146439,
+      "processed_rows": 146439,
+      "exception_rows": 55755
+    },
+    {
+      "table": "claims_by_state_eda",
+      "source_file": "Claim_by_State_EDA_Masked.xlsx",
+      "source_rows": 122739,
+      "processed_rows": 122739,
+      "exception_rows": 41473
+    },
+    {
+      "table": "claims_by_state_loi",
+      "source_file": "Claim_by_state_LOI_Masked.xlsx",
+      "source_rows": 118852,
+      "processed_rows": 118852,
+      "exception_rows": 54644
+    },
+    {
+      "table": "policies_by_occupation_eda",
+      "source_file": "Policy_by_OCC_EDA_Masked.xlsx",
+      "source_rows": 60772,
+      "processed_rows": 60772,
+      "exception_rows": 5917
+    },
+    {
+      "table": "policies_by_occupation_loi",
+      "source_file": "Policy_by_OCC_LOI_Masked.xlsx",
+      "source_rows": 66453,
+      "processed_rows": 66453,
+      "exception_rows": 6708
+    },
+    {
+      "table": "policies_by_state_eda",
+      "source_file": "Policy_by_State_EDA_Masked.xlsx",
+      "source_rows": 21940,
+      "processed_rows": 21940,
+      "exception_rows": 1548
+    },
+    {
+      "table": "policies_by_state_loi",
+      "source_file": "Policy_by_State_LOI_Masked.xlsx",
+      "source_rows": 24428,
+      "processed_rows": 24428,
+      "exception_rows": 1897
+    }
+  ],
+  "overlap_rule": "Never add totals across APRA report tables."
+}

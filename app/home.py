@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import streamlit as st
 
-from data import read_json
+from data import read_json, using_demo_data
 from src.config import settings
 from src.fremtpl2 import DISCLAIMER
 
@@ -26,6 +26,12 @@ def render_home() -> None:
     apra_audit = read_json(settings.apra_processed / "ingestion_audit.json")
     verification = read_json(settings.root / "reports/verification.json")
     apra_rows = sum(item.get("processed_rows", 0) for item in apra_audit.get("tables", []))
+
+    if using_demo_data():
+        st.info(
+            "Public demo mode: charts use compact derived artifacts committed for deployment. "
+            "Verified project totals come from the full pipeline audits."
+        )
 
     st.markdown(
         """

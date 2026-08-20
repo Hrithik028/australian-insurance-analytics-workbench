@@ -335,8 +335,3 @@ defined in [`pyproject.toml`](pyproject.toml).
 
 Potential next steps include repeated temporal validation, explicit calibration factors, monotonic
 feature constraints for challenger models, richer drift monitoring and containerisation.
-
-## Resume evidence
-
-Exactly three evidence-backed bullets are maintained in [reports/resume_bullets.md](reports/resume_bullets.md).
-Numbers come from generated ingestion, modelling and verification artifacts—not placeholders.

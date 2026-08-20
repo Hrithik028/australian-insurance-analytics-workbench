@@ -90,8 +90,6 @@ positive severity. Technical claims cost is frequency multiplied by severity.
 - [`mabilton/fremtpl2`](https://huggingface.co/datasets/mabilton/fremtpl2), revision
   `b645a3d34da6edf421785c83ddd39637b6553a10`.
 
-Raw and downloaded data is ignored by Git. The project never substitutes synthetic data when a
-real source is unavailable; disabling the French module leaves the APRA module operational.
 
 ## Architecture
 

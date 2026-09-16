@@ -4,7 +4,7 @@
 [Architecture guide](docs/architecture.md) ·
 [Verified project report](reports/project_completion_report.md)
 
-A production-style insurance analytics portfolio project built for Australian pricing, data and
+An insurance analytics and educational modelling project built for Australian pricing, data and
 analytics roles. It combines two deliberately separate modules:
 
 1. descriptive Australian portfolio analytics using APRA masked aggregate policy and claims reports;
@@ -13,6 +13,24 @@ analytics roles. It combines two deliberately separate modules:
 > This project uses masked aggregate reports from APRA’s National Claims and Policies Database and
 > the public French freMTPL2 motor-insurance dataset. It is an independent portfolio project and is
 > not affiliated with, endorsed by or based on confidential data from APRA, IAG or any insurer.
+
+## At a glance
+
+| Area | Evidence in this repository |
+| --- | --- |
+| Data engineering | Source checksums, schema validation, Parquet and DuckDB reconciliation |
+| Analytics | Explicit report grain, SQL measures and source-separated dashboards |
+| Modelling | Frequency and severity GLMs with policy-disjoint evaluation |
+| Interface | Streamlit application with compact derived demo artifacts |
+| Verification | 22 pytest tests and Ruff passed in the September 2026 audit |
+
+## Visual documentation
+
+![Implemented architecture: separate Australian and French data pipelines](docs/architecture-overview.svg)
+
+This repository-generated architecture illustration explains the implementation.
+Open the demo or launch Streamlit locally to inspect the interface. An approved
+application screenshot is not currently included in the tracked documentation.
 
 ## Public demo
 
@@ -47,7 +65,7 @@ never merged and French model results are never represented as Australian market
 
 The generated [APRA executive summary](reports/apra_executive_summary.md),
 [French model summary](reports/french_model_summary.md), [completion report](reports/project_completion_report.md)
-and [resume evidence](reports/resume_bullets.md) contain the current verified results.
+contain the current recorded results.
 
 ## Why pricing and claims analytics matter
 
@@ -90,6 +108,8 @@ positive severity. Technical claims cost is frequency multiplied by severity.
 - [`mabilton/fremtpl2`](https://huggingface.co/datasets/mabilton/fremtpl2), revision
   `b645a3d34da6edf421785c83ddd39637b6553a10`.
 
+Raw and downloaded data is ignored by Git. The project never substitutes synthetic data when a
+real source is unavailable; disabling the French module leaves the APRA module operational.
 
 ## Architecture
 
@@ -243,9 +263,9 @@ interpretations, scenario recommendations and limitations.
 
 Python 3.12 is required.
 
-```bash
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
@@ -303,8 +323,8 @@ Open the local URL printed by Streamlit, normally `http://localhost:8501`.
 
 To test exactly what the hosted application will use:
 
-```bash
-set INSURANCE_DATA_MODE=demo
+```powershell
+$env:INSURANCE_DATA_MODE = "demo"
 streamlit run app/app.py
 ```
 
@@ -330,6 +350,7 @@ defined in [`pyproject.toml`](pyproject.toml).
 - French experience is not representative of Australian motor insurance.
 - The severity model currently overpredicts held-out mean severity and requires calibration before
   any broader use.
+- A policy-disjoint split does not by itself establish temporal robustness. The severity validation partition is not used for model selection in the current training flow.
 
 ## Future enhancements
 
